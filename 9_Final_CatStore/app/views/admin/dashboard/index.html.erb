@@ -1,0 +1,69 @@
+<main class="container mt-5">     
+  <div class="card my-3 text-center card-center">
+    <h2 class="action-banner card-header">Dashboard Admin</h2>
+
+  <div class="accordion mt-5" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <a class="font-weight-bold my-4 mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="dashboard-text">
+            Toutes les commandes
+          </button>
+        </a>
+      </div>
+
+      <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <% if Order.all.length == 0 %>
+        <div class="card-body">
+          Aucune commande n'a été passée
+        </div>
+        <% else %>
+        <% Order.all.each do |order| %>
+        <div class="card m-1">
+          <div class="card-body">
+            <p class="card-text">Commande du : <%= order.created_at.strftime("%d.%m.%Y à %H:%M") %> de <%= order.user.email%></p>
+            <p class="card-text"><small class="text-muted">Nombre de produits : <%= order.items.length %></small></p>
+            <p class="card-text"><small class="text-muted">Total : <%= order.total %> €</small></p>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="card m-2">
+        <div class="card-body">
+          <% if Order.all.length == 0 %>
+          <h5 class="text-danger"><%= Order.all.length %> commande passée.</h5>
+          <% elsif Order.all.length == 1%>
+          <h5 class="text-danger"><%= Order.all.length %> commande. Total : <%= Order.total_commande %> €</h5>
+          <% else %>
+          <h5 class="text-danger"><%= Order.all.length %> commandes. Total : <%= Order.total_commande %> €</h5>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <a class="font-weight-bold my-4 mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="dashboard-text">
+              Tous les utilisateurs
+            </button>
+          </a>
+        </div>
+
+        <div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <% User.all.each do |user| %>
+          <div class="card m-1">
+            <div class="card-body">
+              <p class="card-text">Mail : <%= user.email %> créé le <%= user.created_at.strftime("%d.%m.%Y à %H:%M") %></p>
+              <p class="card-text"><small class="text-muted">Nombre de commande : <%= user.orders.length %></small></p>
+              <p class="card-text"><small class="text-muted">Total dépensé : <span class="text-danger"><%= user.orders.total_commande %> €</span></small></span>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+
+
+      
+</main>

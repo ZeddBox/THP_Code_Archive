@@ -1,0 +1,10 @@
+<h2 class="text-center mt-5 mb-2"> Liste des participants </h2>
+<br>
+<table class="container mb-5">
+  <% @guests.each do |guest| %>
+  <tr class="d-flex border-dark border-bottom">
+    <td><i class="fas fa-user-circle fa-2x p-2 bd-highlight"></i></td>
+    <td class="p-2 bd-highlight"><%= guest.first_name %> <%= guest.last_name %></td> 
+  </tr>
+  <% end %>
+</table>

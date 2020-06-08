@@ -1,0 +1,14 @@
+Bonjour <%= @user.first_name %>, voici votre commande chez CatStore !
+==========================================================
+
+Tu as acheté une ou des photos sur CatStore en utilisant l'e-mail suivant : <%= @user.email %>.
+
+Voici les photos :
+
+<% @order.items.each do |item| %> 
+     <%= item.image_url %>
+<% end %>
+
+Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+
+À très vite sur CatStore !

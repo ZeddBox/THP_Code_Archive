@@ -1,0 +1,34 @@
+<%= render "layouts/small_banner"%>
+
+<main class="container mb-5 mt-5">
+    <div class="img-show mr-5">
+       <%= image_tag @item.image_url, height: "500px;" %>
+    </div>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Photographe :</b> <%= @item.photographer %></li>
+        <li class="list-group-item"><b>Description : </b><%= @item.description %></li>
+        <li class="list-group-item"><b>Race : </b><%= @item.race %></li>
+        <li class="list-group-item"><b>Prix : </b><%= @item.price %> €</li>
+      </ul>
+  </div>
+
+  <div class="text-left">
+  <% if user_signed_in?%>
+    <%= form_with method: "PUT", url: cart_path  do |form| %>
+       <%= form.submit "Ajouter au panier".html_safe, class:"btn btn-danger mt-3 "%>
+    <% end %>
+  <% else %>
+    <%= link_to "Ajouter au panier", new_user_session_path, class: "btn btn-danger mt-3", method: "GET" %>
+    <% end %>
+  </div>
+<div class="underpic">
+    <p class="form-text text-muted"> <%= @item.comments.count %> commentaires </p>
+    
+    <%= render @item.comments %>
+</div>
+<div class="underpic w-50">
+    <%= render "comments/form" %>
+</div>
+
+</main>

@@ -1,0 +1,56 @@
+
+/************************/
+/*      TYPOGRAPHIES    */
+/************************/
+
+body {
+  font-family: "Montserrat", "Open Sans", sans-serif;
+  background-color: white;
+  line-height: 1.4;
+}
+
+h1,
+h2 {
+  font-family: "Montserrat", "Roboto", "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+h1,
+.h1 {
+  font-size: 6rem;
+}
+
+h2,
+.h2 {
+  font-size: 4rem;
+}
+
+h3,
+.h3 {
+  font-size: 2.5rem;
+}
+
+h4,
+.h4 {
+  font-size: 2rem;
+}
+
+h5,
+.h5 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+p {
+  font-family: "Montserrat", "Roboto", "Open Sans", sans-serif;
+}
+
+.underpic {
+  margin: auto;
+  clear: both;
+}

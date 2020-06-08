@@ -1,0 +1,26 @@
+<div class="container mt-5 form-group">
+ <%= form_for @current_gossip do |f| %>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <div class="form-group" >
+      <%= label_tag 'Titre du potin' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group" >
+      <%= label_tag 'Contenu du potin' %>
+      <%= f.text_area :content, class: 'form-control' %>
+    </div>
+    <div class="d-flex justify-content-center"><strong class="mx-2"><%= label_tag 'Tags actuels : ' %></strong>
+    <% @current_tags.each do |tag| %>
+      <%=tag.title%>
+    <% end %></div>
+    <strong><%= label_tag 'Ajouter un tag' %></strong>
+    <%=select_tag "tag", options_from_collection_for_select(@tags, :id, :title), class:"form-control", include_blank: true%>
+    <br /> 
+    <strong><%= label_tag 'Supprimer un tag' %></strong>
+    <%=select_tag "delete_tag", options_from_collection_for_select(@current_tags, :id, :title), class:"form-control", include_blank: true%>
+    <br /> 
+    <br /> 
+    <%= submit_tag "Editer le potin", class:"btn btn-info"%>
+    <% end %>
+</div>

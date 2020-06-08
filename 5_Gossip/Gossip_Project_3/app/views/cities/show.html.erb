@@ -1,0 +1,25 @@
+<%# <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> %>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile border border-dark">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img class="rounded" src="https://www.untoldmorsels.com/wp-content/uploads/2018/04/paris-best-city-in-france.jpg" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h2>
+                                        <%= @current_city.name %>
+                                    </h2>
+                                    </br>
+                                    <h5>Zip Code : <%= @current_city.zip_code %></h5>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>

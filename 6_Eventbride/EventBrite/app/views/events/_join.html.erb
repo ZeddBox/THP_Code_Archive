@@ -1,0 +1,28 @@
+<% if user_signed_in?%>
+  <% if current_user.id != @admin.id && @guests.include?(current_user) == false %>
+    <div class="text-center mt-5">
+      <%= form_tag event_attendances_path(@event.id) do %>
+        <article>
+          <label class="amount">
+            <span>Rejoignez l'évènement en réglant les frais d'inscriptions</span>
+          </label>
+        </article>
+
+      <%= render 'charges/new' %>
+      
+      <% end %>
+    </div>
+  <%else current_user.id != @admin.id && @guests.include?(current_user) %>
+    <h3 class="text-center mt-5"> Vous participez déjà à cet évènement </h3>
+  <%end%>
+<%else%>
+  <div class="text-center mt-5">
+    <%= link_to "Rejoindre l'évènement", new_user_session_path, class:"btn btn-outline-primary btn-lg" %> 
+  </div>
+<% end %>
+
+<% if user_signed_in? && current_user.id == @admin.id %>
+<div class="d-flex justify-content-center">
+  <%= link_to 'Supprimer', @event, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger mx-2" %>
+</div>
+<% end %>

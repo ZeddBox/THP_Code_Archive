@@ -1,0 +1,45 @@
+<% if params[:commit] == "Login" %>
+  <div class="container alert alert-danger d-flex justify-content-center alert-dismissible fade show" role="alert">Wrong motherfucker wrong !
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% elsif params[:controller] != "sessions" %>
+  <div class="container alert alert-danger d-flex justify-content-center alert-dismissible fade show" role="alert">Merci de vous identifier pour visiter cette page
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<h1 class="display-5 text-center mt-5"> LOGIN </h1>
+
+<div class="container-md mt-2">
+  <div class="card" style="30rem">
+  <div class="card-body">
+    <div class="form-group">
+    <%= form_tag sessions_path, method: "post" do%>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+      <strong><%= label_tag 'E-Mail' %></strong>
+      <%= text_field_tag 'email', @user.email, class:"form-control" %>
+      <br /> 
+
+    </div>
+    <div class="form-group">
+
+      <strong><%= label_tag 'Mot de passe' %></strong>
+      <%= text_field_tag 'password', @user.email, class:"form-control", type:"password" %>
+      <br /> 
+
+    </div>
+    
+    <%= submit_tag "Se connecter", class:"btn btn-primary justify-content-center"%>
+
+    <% end %>
+    <hr>
+    <%= link_to "Nouveau ? Inscrit toi !", new_user_path, class: 'btn btn-outline-secondary'%>
+  </div>
+</div>
+</div>
+</div>

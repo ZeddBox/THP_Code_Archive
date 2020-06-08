@@ -1,0 +1,194 @@
+body {
+    margin: 2em auto;
+    max-width: 800px;
+    font-family: 'Open Sans', Arial;
+    color: #454545;
+ 
+}
+
+.st {
+    line-height: 1.2;
+    margin-top: -10px;
+}
+
+.mfw {
+    color: #730000;
+}
+
+.wr {
+    color: #c0392b;
+    text-decoration: underline solid rgb(192, 57, 43);
+}
+small {
+    font-size: xx-small;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+a {
+    color: #0077aa;
+}
+.mfw {
+    color: #730000;
+    text-decoration: underline solid #730000;
+}
+
+@keyframes wheelHueColor {
+    from, to { color: hsl(324, 70%, 45%); }
+    10%      { color: hsl(360, 65%, 45%); }
+    20%      { color: hsl( 36, 80%, 45%); }
+    30%      { color: hsl( 72, 75%, 35%); }
+    40%      { color: hsl(108, 65%, 35%); }
+    50%      { color: hsl(144, 75%, 35%); }
+    60%      { color: hsl(180, 75%, 35%); }
+    70%      { color: hsl(216, 60%, 45%); }
+    80%      { color: hsl(252, 65%, 50%); }
+    90%      { color: hsl(288, 60%, 40%); }
+}
+
+#rbw {
+    color: hsl(324, 70%, 45%);
+    animation: wheelHueColor 2s infinite;
+}
+
+.fakepre {
+    font-family: monospace;
+    font-size: 14.4px;
+
+}
+
+span.foufoufou {
+    color:#444;
+    font-weight:700
+}
+span.foufoufou:before {
+    content:"";
+    display:inline-block;
+    width:1em;
+    height:1em;
+    margin-left:.2em;
+    margin-right:.2em;
+    background-color:#444
+}
+span.foufivfoufivfoufiv {
+    color:#454545;
+    font-weight:700;
+}
+span.foufivfoufivfoufiv:before {
+    content:"";
+    display:inline-block;
+    width:1em;
+    height:1em;
+    margin-left:.2em;
+    margin-right:.2em;
+    background-color:#454545;
+}
+
+li img {
+    width: 12px;
+}
+/* LE CHAT */ 
+.fancyPositioning .picture-left {
+    float: left;
+    width: 40%;
+}
+
+.fancyPositioning .picture-left img {
+    width: 100%;
+}
+.fancyPositioning .picture-left .caption {
+    font-size: .7em;
+}
+.fancyPositioning .tleft {
+    float: left;
+    width: 55%;
+    margin-left: 1em;
+}
+.fancyPositioning:after {
+    display: block; 
+    content: "";
+    clear: both;
+}
+
+/* QUOTE */
+blockquote {
+    color:#456;
+    margin-left:0;
+    margin-top:2em;
+    margin-bottom:2em
+}
+blockquote span {
+    float:left;
+    margin-left:1rem;
+    padding-top:1rem
+}
+blockquote author {
+    display:block;
+    clear:both;
+    font-size:.6em;
+    margin-left:2.4rem;
+    font-style:oblique
+}
+blockquote author:before {
+    content:"- ";
+    margin-right:1em
+}
+blockquote:before {
+    color:#666;
+    content:open-quote;
+    font-size:2.2em;
+    font-weight:600;
+    float:left;margin-top:0;
+    margin-right:.2rem;
+    width:1.2rem
+}
+blockquote:after {
+    content:"";
+    display:block;
+    clear:both
+}
+/* LOGO KOPIMI */ 
+.kopimi img {
+    width: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p{
+    font-size: 16px;
+    text-align: justify;
+}
+
+/* test contrast et inverted */ 
+html.contrast body{color:#050505}
+html.contrast blockquote{color:#11151a}
+html.contrast blockquote:before{color:#262626}
+html.contrast a{color:#0051c9}
+html.contrast a:visited{color:#7d013e}
+html.contrast span.wr{color:#800}
+html.contrast span.mfw{color:#4d0000}
+html.inverted{background-color:#010101}
+html.inverted body{color:#bababa}
+html.inverted div#contrast,html.inverted div#invmode{color:#fff;background-color:#000}
+html.inverted blockquote{color:#dad0c7}
+html.inverted blockquote:before{color:#bfbfbf}
+html.inverted a{color:#07a}
+html.inverted a:visited{color:#ac5a82}
+html.inverted span.wr{color:#c0392b}
+html.inverted span.mfw{color:#8a0000}
+html.inverted.contrast{background-color:#010101}
+html.inverted.contrast body{color:#fff}
+html.inverted.contrast div#contrast,html.inverted.contrast div#invmode{color:#fff;background-color:#000}
+html.inverted.contrast blockquote{color:#f8f6f5}
+html.inverted.contrast blockquote:before{color:#e5e5e5}
+html.inverted.contrast a{color:#07a}
+html.inverted.contrast a:visited{color:#ac5a82}
+html.inverted.contrast span.wr{color:#c0392b}
+html.inverted.contrast span.mfw{color:#a10000}

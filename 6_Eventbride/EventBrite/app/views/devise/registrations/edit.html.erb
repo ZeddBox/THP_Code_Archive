@@ -1,0 +1,73 @@
+<main class="container">
+<h2 class="text-center mt-2">Editer votre profil</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)
+     <% if @minimum_password_length %>
+      <em>- <%= @minimum_password_length %> caractères minimum</em>
+    <% end %>
+    </i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Modifier info d'authentification", class:"btn btn-success" %>
+  </div>
+<% end %>
+  <hr>
+
+      <%= form_for @current_user, url: {action: "edit"} do |f| %>
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="form-group">
+          <%= label_tag 'Prénom' %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'Nom' %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= label_tag 'Description' %>
+          <%= f.text_area :description, class: 'form-control' %>
+        </div>
+        <br /> 
+        <%= f.submit "Editer", class:"btn btn-success"%>
+      <% end %>
+
+  <hr>
+<div class="text-center">
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-outline-danger" %></p>
+</div>
+<hr>
+
+<%= link_to "« Retour au profil", :back, class:"btn btn-primary mb-4" %>
+
+<style>
+.footer {
+position: relative;}
+</style>
+</main>

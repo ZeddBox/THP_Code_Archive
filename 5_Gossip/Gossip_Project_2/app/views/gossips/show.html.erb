@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Gossip Project</title>
+  </head>
+  <body>
+    <div class="container-md">
+    <div class="card mt-2">
+      <h5 class="card-header">Gossip N°<%=params[:id]%></h5>
+      <div class="card-body">
+        <h5> <span class="card-author">Auteur</span> : 
+        <%= link_to @current_gossip.user.first_name, user_path(@current_gossip.user.id) %>
+        </h5>
+        <hr>
+
+        <%# Prochain objectif : mettre ce genre de méthode dans le model ou controller %>
+        <kbd>
+        <% number_of_tags = JoinTableGossipTag.where(gossip_id:@current_gossip).length %>
+        <% i = 0 %>
+        <% number_of_tags.times do %>
+
+        <%= Tag.find_by(id:JoinTableGossipTag.where(gossip_id:@current_gossip)[i].tag_id).title %>
+        
+        <% i += 1 %>
+        <% end %>
+        
+        </kbd>
+        <hr>
+        <h5><%= @current_gossip.title %></h5>
+        <p><%= @current_gossip.content %></p>
+        <p class="blockquote-footer"><%= @current_gossip.created_at.strftime("%a %d %m %Y") %></p>
+      </div>
+    </div>
+    <div>
+  </body>
+</html>

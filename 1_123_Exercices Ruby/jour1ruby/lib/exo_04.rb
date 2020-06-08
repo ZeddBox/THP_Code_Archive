@@ -1,0 +1,3 @@
+puts "Salut, ça farte ?"
+
+CELA BUG CAR IL FAUT FERMER LE STRIIIIIIING

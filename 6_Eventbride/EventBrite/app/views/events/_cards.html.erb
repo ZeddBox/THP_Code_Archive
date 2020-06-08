@@ -1,0 +1,14 @@
+<main class="container mb-5">
+  <div class="row row-cols-3 d-flex justify-content-center">
+  <% Event.all.each do |event| %>
+    <div class="card border-primary text-center bg-light my-3 mx-3" style="max-width: 50rem;"> 
+      <div class="card-body">
+        <h4 class="card-text"><%= event.title %></h4>
+        <p class="card-text"><small class="text-muted">Date de début : <%= event.start_date.strftime("%d.%m.%Y à %H:%M") %></small></p>
+        <p class="card-text"><small class="text-muted">Prix : <%= event.price %> €</small></p>
+      </div>
+      <div class="card-footer"><%= link_to "Voir l'évenement", event_path(event.id), class:"btn btn-outline-secondary" %></div>
+    </div>
+  <% end %>
+  </div>
+</main>

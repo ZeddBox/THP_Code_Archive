@@ -1,0 +1,13 @@
+<div>
+  <p><b>Object : </b><%= email.object %></p>
+  <hr>
+  <p><%= email.body %></p>
+  <div class="mt-5">
+  <%= link_to "Delete", email_path(email.id), class:"btn btn-danger", data:{method: "DELETE"}, remote: true %>
+  <% if email.read %>
+    <%= link_to "Mark as not read", email_path(email.id), id:"btn-read", class:"btn btn-outline-warning", data:{method: "PUT"}, remote: true %>
+  <% else %>
+    <%= link_to "Mark as read", email_path(email.id), id:"btn-read", class:"btn btn-outline-success", data:{method: "PUT"}, remote: true %>
+  <% end %>
+  </div>
+</div>

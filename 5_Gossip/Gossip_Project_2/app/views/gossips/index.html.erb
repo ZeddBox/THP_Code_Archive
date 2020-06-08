@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>GOSSIP - Team</title>
+  </head>
+  <body>
+    <% if params[:commit] == "Create Post" %>
+      <p class="container alert alert-success d-flex justify-content-center" role="alert">The super potin was succesfully saved !</p>
+    <% end %>
+
+    <h1 class="display-4 text-center mt-3"> Bienvenue <%= @first_name%></h1>
+    <h1 class="display-5 text-center mt-3"> Envie d'en savoir plus sur vos collègues du Hacking Project ? 😉</h1>
+    <br/>
+    
+    <main class="container">
+      <div class="row row-cols-4 d-flex justify-content-center">
+        <% Gossip.all.each do |gossip| %>
+          <div class="card border-primary text-center bg-light my-3 mx-3" style="max-width: 18rem;"> 
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to gossip.user.first_name, user_path(gossip.user.id) %></h5>
+              <p class="card-text"><%= gossip.title %></p>
+            </div>
+            <div class="card-footer"><%= link_to "Voir plus", gossip_path(gossip.id), class:"btn btn-outline-info" %></div>
+          </div>
+        <% end %>
+      </div>
+    </main>
+
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>GOSSIP - Team</title>
+  </head>
+  <body>
+
+    <h1 style="text-align : center;"> Bienvenue <%= @first_name%></h1>
+    <h2 style="text-align : center;"> Envie d'en savoir plus sur vos collègues du Hacking Project ? 😉</h2>
+    <h5 style="text-align : center;"> La règle n°1, c'est d'écrire un potin avant de partir !</h5>
+    <h5 style="text-align : center;"> La règle n°2, c'est de respecter la règle n°1 !</h5>
+
+    <div class="container-md">
+    <% @number_of_gossips.times do
+        gossip = Gossip.find_by(id:@my_id) %>
+
+      <div class="card mt-2">
+        <h5 class="card-header"> <span class="card-author">Auteur</span> : 
+        <%= link_to User.find_by(id:gossip.user_id).first_name, user_path(User.find_by(id:gossip.user_id).id)%>
+        </h5>
+
+        <div class="card-body">
+          <h4 class="card-title"><span class="title-on-card">Titre</span> : <%= gossip.title %></h4>
+          <p class="blockquote-footer"><%= gossip.created_at.strftime("%a %d %m %Y") %></p>
+          <button type="submit" class="btn btn-light"> <%= link_to'Voir plus..', gossip_path(@my_id) %></button>
+        </div>
+
+      </div>
+    <% @my_id += 1%>
+    <% end %>
+    <button type="submit" class="btn btn-dark mt-3 mb-5 d-flex justify-content-center"> <%= link_to'Ecrire un Gossip !', welcome_path %></button>
+
+    </div>
+
+    
+  </body>
+</html>

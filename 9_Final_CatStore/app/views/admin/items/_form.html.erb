@@ -1,0 +1,40 @@
+  
+<%= form_with(model: [:admin, @item], local: true, method: :put) do |form| %>
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= form.label :nom_du_chat %>
+    <%= form.text_field :title, class:"form-control", placeholder:"Nom" %>
+  </div>
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= form.label :description %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Description" %>
+  </div>
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= form.label :race %>
+    <%= form.text_field :race, class:"form-control", placeholder:"Race" %>
+  </div>
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= form.label :photographe %>
+    <%= form.text_field :photographer, class:"form-control", placeholder:"Photographe" %>
+  </div>
+
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= form.label :prix %>
+    <%= form.text_field :price, class:"form-control", placeholder:"Prix" %>
+  </div>
+  
+  <div class="form-group mb-3 mt-3 col-sm">
+    <%= form.label :url_de_la_photo %>
+    <%= form.text_field :image_url, class:"form-control", placeholder:"Image" %>
+  </div>
+
+  <div class="actions text-center">
+ <%= form.submit 'Mettre à jour', :class => 'btn btn-success' %>
+  
+  </div>
+<% end %>
+
+<br><br>

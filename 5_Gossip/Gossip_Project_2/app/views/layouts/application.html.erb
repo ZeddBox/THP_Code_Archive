@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gossip Project</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('oreille.jpg') %>
+
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-2kOE+STGAkgemIkUbGtoZ8dJLqfvJ/xzRnimSkQN7viOfwRvWseF7lqcuNXmjwrL" crossorigin="anonymous">
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <%= link_to "The Gossip Project", root_path, class:"navbar-brand"%>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <%= link_to "", root_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "", root_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Accueil", root_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Ajouter Gossip", new_gossip_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Team", team_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Contact", contact_path, class:"nav-link" %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+
+
+
+    <%= yield %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

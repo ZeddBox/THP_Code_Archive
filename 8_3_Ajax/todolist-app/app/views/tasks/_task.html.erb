@@ -1,0 +1,8 @@
+<li id='<%= task.id %>'>
+  <%= task.title  %>
+  <% unless task.deadline.nil? %>
+    , to read: <%= task.deadline.strftime('%D')  %>
+  <% end %>
+  <%= link_to "", task_path(task.id), method: "delete", class:"fas fa-trash-alt text-danger", remote: true %>
+  <%= link_to "", task_path(task.id), method: "put", class:"fas fa-pen-alt text-info", remote: true %>
+</li>

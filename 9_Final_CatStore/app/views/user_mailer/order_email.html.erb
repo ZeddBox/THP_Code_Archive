@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour <%= @user.first_name %>, voici ta commande chez CatStore !!!!</h1>
+    <p>
+    Tu as acheté une ou des photos chez <strong>CatStore</strong> en utilisant l'e-mail suivant : <%= @user.email %>.
+    </p>
+
+    <h2>Voici les photos :</h2>
+
+    <% @cart.items.each do |item| %>
+      <img src="<%= item.image_url %>" alt="" style="height: 300px">
+    <% end %>
+
+    <p>
+    Pour accéder à ton espace client, connecte-toi via : <a href="<%= @url %>"><%= @url %></a> .
+    </p>
+    <p> À très vite sur CatStore ! </p>
+  </body>
+</html>

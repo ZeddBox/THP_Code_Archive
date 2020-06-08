@@ -1,0 +1,40 @@
+<%# <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> %>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container emp-profile border border-dark">
+  <div class="row">
+    <div class="col-md-4">
+        <div class="profile-img">
+          <img class="rounded" src=<%=@url%>  alt=""/>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="profile-head">
+          <h2><%= @current_city.name %></h2>
+          </br>
+          <h5>Zip Code : <%= @current_city.zip_code %></h5>
+        </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="display-5 text-center mt-3"> Les potins écrits dans cette ville 😉</h1>
+    <br/>
+    <main class="container mb-5">
+      <div class="row row-cols-4 d-flex justify-content-center">
+        <% Gossip.all.each do |gossip| %>
+          <% if gossip.user.city.id == @current_city.id %>
+          <div class="card border-primary text-center bg-light my-3 mx-3" style="max-width: 18rem;"> 
+            <div class="card-body">
+              <h4 class="card-text"><%= gossip.title %></h4>
+              <h5 class="card-title">de : <%= link_to gossip.user.first_name, user_path(gossip.user.id) %></h5>
+              <span class="badge badge-pill badge-secondary"> <%= gossip.comments.length %> Commentaires</span>
+            </div>
+            <div class="card-footer"><%= link_to "Voir plus", gossip_path(gossip.id), class:"btn btn-outline-info" %></div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </main>

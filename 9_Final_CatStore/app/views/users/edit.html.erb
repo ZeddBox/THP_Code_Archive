@@ -1,0 +1,16 @@
+<main class="container mt-5">
+  <div class="card my-3 text-center w-50 card-center">
+    <h2 class="action-banner card-header">Éditer votre profil</h2>
+      <%= render 'form', user: @user %>
+  </div>
+  <div class="text-center">
+    <%= link_to 'Mon Profil', @user, class:"btn btn-secondary" %> |
+    <%= link_to 'Accueil', root_path, class:"btn btn-outline-secondary" %>
+  </div>
+</main>    
+
+
+
+
+
+

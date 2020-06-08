@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Bonjour <%= @admin.first_name %>, un nouvel achat a été fait sur ton site !</h1>
+
+    <h2>Voici la commande : </h2>
+
+    <p><%= @user.email %> a commandé <%= @cart.items.length %> photos !</p> 
+    <p>Pour un total de <%= @cart.total %> €</p> 
+
+    <p>
+    Pour accéder voir le dashboard, connecte-toi via : <a href="<%= @url %>"><%= @url %></a> .
+    </p>
+  </body>
+</html>

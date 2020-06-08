@@ -1,0 +1,16 @@
+  <div class="jumbotron d-flex justify-content-center align-items-center" 
+    style="
+    background-image: url(https://images.pexels.com/photos/1157557/pexels-photo-1157557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    ">
+    <div class="container" style="background-color: rgba(255, 255, 255, 0.6); padding: 25px;">
+      <h1 class="display-3">Eventbrite</h1>
+      <p>Retrouvez tous les évènements près de chez vous et partagez les vôtres</p>
+      <% if current_user %>
+        <%= link_to "Créer un évenement", new_event_path, class:"btn btn-secondary button_center mb-2" %>
+      <% end %>
+    </div>
+  </div>

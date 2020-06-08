@@ -1,0 +1,44 @@
+<main class="container mt-5">     
+
+  <div class="card my-3 text-center w-50 card-center">
+    <h2 class="action-banner card-header">Mon Profil</h2>
+
+
+          <div class=" pt-5">
+            <% if current_user.first_name == '' && current_user.last_name == ''%>
+              <h5 class="mb-4">Nom : <span class="card-text">Non renseigné</span></h5>
+            <% else %>
+              <h5 class="mb-4">Nom : <span class="card-text"><%= current_user.first_name %> <%=current_user.last_name %></span></h5>
+            <% end %>
+            <div class="text mb-4">
+              <h5 class="">Email : <span class="card-text"><%= current_user.email %></span> </h5>
+            </div>
+          </div>
+  </div> 
+</main>
+
+<div class=" d-flex justify-content-center w-55 card-center mt-5">
+  <%= link_to "Paramètres du compte", edit_user_registration_path, class:"btn btn-danger button_center my-2 mx-2" %>
+  <%= link_to "Ajouter mon nom", edit_user_path(current_user.id), class:"btn btn-success button_center my-2 mx-2" %>
+</div>
+
+<div class="container mt-5">
+  <div class="card mt-2 mb-3 text-center w-50 card-center">
+    <h4 class="mb-4 mt-3" >Mon historique de commande </h4>
+    <% if Order.find_by(user_id: @user.id) == nil %>
+       <span class="card-text mb-4"> Vous n'avez pas fait de commandes </span>
+    <% else %>
+    <% Order.all.each do |order| %>
+      <% if order.user_id == current_user.id %>
+      <div class="card mb-2 mx-2">
+        <div class="card-body">
+          <p class="card-text">Commande du : <%= order.created_at.strftime("%d.%m.%Y à %H:%M") %> de <%= order.total %> €</p>
+          <p class="card-text"><small class="text-muted">Nombre de produits : <%= order.items.length %> </small></p>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+

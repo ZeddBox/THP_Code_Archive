@@ -1,0 +1,32 @@
+<h1 class="text-center mt-3">Création d'un nouvel évènement</h1>
+
+<div class="container">
+    <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <div class="form-group">
+        <%= label_tag 'start_date', 'Date de début' %>
+        <%= text_field_tag 'start_date', nil, class:"form-control", placeholder: '2 janvier 2021'  %>
+    </div>
+     <div class="form-group">
+        <%= label_tag 'duration', 'Durée' %>
+        <%= text_field_tag 'duration', nil, class:"form-control", placeholder: '30'  %>
+    </div>
+     <div class="form-group">
+        <%= label_tag 'title', 'Titre (entre 5 et 140 caractères)' %>
+        <%= text_field_tag 'title', nil, class:"form-control", placeholder: 'Danse avec les inconnus'  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag 'description', 'Description (entre 20 et 1000 caractères)' %>
+        <%= text_area_tag 'description', nil, class:"form-control", rows: 4 %>
+    </div>
+     <div class="form-group">
+        <%= label_tag 'price', 'Prix' %>
+        <%= text_field_tag 'price', nil, class:"form-control"%>
+    </div>
+     <div class="form-group">
+        <%= label_tag 'location', 'Lieu' %>
+        <%= text_field_tag 'location', nil, class:"form-control", placeholder: 'ESAC Cambrai'  %>
+    </div>
+        <%= submit_tag "Créer", class:"btn btn-success" %>
+
+    <% end %>
+</div>

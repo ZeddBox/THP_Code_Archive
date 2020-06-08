@@ -1,0 +1,55 @@
+<main class="container mt-5">
+  <div class="card my-3 text-center w-50 card-center">
+    <h2 class="action-banner card-header">Changez votre mot de passe</h2>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="form-group col-sm">
+        <%= f.label :email, class: "mt-2"%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>En attente de confirmation: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+  <div class="field col-sm">
+    <%= f.label :mot_de_passe %> <i class="form-text text-muted col-sm">(Ne rien écrire pour ne pas modifier)</i>
+    <%= f.password_field :password, autocomplete: "new-password", class:"form-control"%>
+    <% if @minimum_password_length %>
+      <em class="form-text text-muted col-sm"><%= @minimum_password_length %> caractères minimum</em>
+      </br>
+    <% end %>
+  </div>
+
+  <div class="field col-sm mt-2">
+    <%= f.label :confirmation_du_mot_de_passe %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+  </div>
+
+  <div class="field col-sm mt-2">
+    <%= f.label :mot_de_passe_actuel %> <i>(Il est nécessaire pour confirmer les modifications)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+  </div>
+
+  <div class="actions mt-3 mb-3">
+    <%= f.submit "Mettre à jour", class: 'btn btn-success' %>
+  </div>
+<% end %>
+</div>
+</div>
+  </div>
+
+  <div class="card my-3 text-center w-50 card-center">
+    <h2 class="action-banner card-header">Supprimez votre compte</h2>
+    <p class="mt-3">Êtes-vous certain.e ? 😔</p>
+    <div class="actions mt-3 mb-3">
+      <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Attention vous êtes en train de supprimer votre compte" }, method: :delete, class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <%= link_to "Retour", :back, class:"btn btn-secondary" %> |
+    <%= link_to 'Mon Profil', @user, class:"btn btn-secondary" %> |
+    <%= link_to 'Accueil', root_path, class:"btn btn-outline-secondary" %>
+  </div>
+</main>

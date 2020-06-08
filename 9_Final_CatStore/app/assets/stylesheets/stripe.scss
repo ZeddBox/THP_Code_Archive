@@ -1,0 +1,31 @@
+.stripe-button-el {
+    width: 300px;
+    border-radius: 0.2em !important;
+    border: 0 !important;
+    background-image: none !important;
+    background-color: #02B875 !important;
+    font-weight: normal !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out !important;
+    margin-top: 0.5rem !important;
+    margin-right: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    margin-left: 0.5rem !important;
+    border-radius: 1.078em !important;
+    cursor: pointer !important;
+}
+
+.stripe-button-el span {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI" !important;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal !important;
+    font-size: 0.875rem !important;
+    border-radius: 0.2em !important;
+    border: 0 !important;
+    border-color: #02B875 !important;
+    background-image: none !important;
+    background: #02B875 !important;
+    background-color: #02B875 !important;
+    box-sizing: border-box !important;
+    outline: 0 !important;
+    background: transparent !important;
+}

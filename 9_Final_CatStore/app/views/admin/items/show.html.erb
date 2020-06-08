@@ -1,0 +1,35 @@
+<%= render "layouts/small_banner"%>
+
+<main class="container mb-5 mt-5">
+  <div class="img-show mr-5">
+    <%= image_tag @item.image_url, height: "500px;" %>
+  </div>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Photographe : </strong><%= @item.photographer %></li>
+      <li class="list-group-item"><strong>Description : </strong><%= @item.description %></li>
+      <li class="list-group-item"><strong>Race : </strong><%= @item.race %></li>
+      <li class="list-group-item"><strong>Prix : </strong><%= @item.price %> €</li>
+    </ul>
+  </div>
+  <div class="text-left">
+    <%= form_with method: "PUT", url: cart_path  do |form| %>
+    <%= form.submit "Ajouter au panier".html_safe, class:"btn btn-success mt-3"%>
+    <% end %>
+  </div>
+  <div class=" d-flex justify-content-left">
+    <%= link_to "Modifier ce chat", edit_admin_item_path(@item.id), class:"btn btn-secondary button_center mr-2 mt-3" %>
+    <%= form_with(model: [:admin, @item], local: true, url: admin_item_path, method: "delete")  do |form| %>
+    <%= form.submit "Supprimer le chat", class:"btn btn-danger mt-3"%>
+    <% end %>
+  </div>
+  <div class="underpic">
+    <p class="form-text text-muted"> <%= @item.comments.count %> commentaires </p>
+
+    <%= render @item.comments %>
+  </div>
+  <div class="underpic w-50">
+    <%= render "comments/form" %>
+  </div>
+
+</main>

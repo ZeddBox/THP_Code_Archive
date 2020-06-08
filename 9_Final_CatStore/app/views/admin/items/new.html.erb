@@ -1,0 +1,9 @@
+<main class="container mt-5">
+  <div class="card my-3 text-center w-50 card-center">
+    <h3 class="action-banner card-header">Ajoutez une nouvelle photo de chat</h3>
+    <%= render 'form_new', item: @item  %>
+  </div>
+  <div class="text-center">
+    <%= link_to 'Accueil', admin_items_path, class:"btn btn-outline-secondary" %>
+  </div>
+</main>

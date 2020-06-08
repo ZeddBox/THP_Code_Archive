@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>GOSSIP - Team</title>
+  </head>
+  <body>
+    <% if params[:commit] == "Ajouter Gossip" %>
+      <p class="container alert alert-success d-flex justify-content-center" role="alert">Le potin a bien été ajouté ! Merci !</p>
+    <% elsif params[:commit] == "Inscription" %>
+      <p class="container alert alert-success d-flex justify-content-center" role="alert">Inscription validée</p>
+    <% end %>
+
+  <% if current_user %>
+    <h1 class="display-4 text-center mt-3"> Bienvenue <%= current_user.first_name%></h1>
+  <% else %>
+    <h1 class="display-4 text-center mt-3"> Bienvenue</h1>
+  <% end %>
+    <h1 class="display-5 text-center mt-3"> Envie d'en savoir plus sur vos collègues du Hacking Project ? 😉</h1>
+    <br/>
+    
+    <main class="container mb-5">
+      <div class="row row-cols-4 row-cols-sm-12 d-flex justify-content-center">
+        <% Gossip.order('gossips.created_at DESC').all.each do |gossip| %>
+          <div class="card border-primary text-center bg-light my-3 mx-3" style="max-width: 18rem;"> 
+            <div class="card-body">
+              <h4 class="card-text"><%= gossip.title %></h4>
+              <h5 class="card-title">de : <%= link_to gossip.user.first_name, user_path(gossip.user.id) %></h5>
+              <p class="small"><%= gossip.created_at.strftime("%a %d %m %Y à %H : %M") %></p>
+              <span class="badge badge-pill badge-secondary"> <%= gossip.comments.length %> Commentaires</span>
+            </div>
+            <div class="card-footer"><%= link_to "Voir plus", gossip_path(gossip.id), class:"btn btn-outline-info" %></div>
+          </div>
+        <% end %>
+      </div>
+    </main>
+
+<style>
+.footer {
+position: relative;}
+</style>
+
+
+  </body>
+</html>

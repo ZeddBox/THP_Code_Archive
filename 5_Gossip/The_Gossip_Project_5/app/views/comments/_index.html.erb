@@ -1,0 +1,16 @@
+      <h5 class="text-center">Commentaires</h5>
+      <% @current_gossip.comments.each do |comment|%>
+        <div class="card mt-1 mx-auto" style="width: 40rem;">
+          <div class="card-body">
+            <h5 class="card-title text-success"><%= comment.user.entire_name%></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= comment.created_at.strftime("%d %b %Y à %H:%M") %></h6>
+            <p class="card-text"><%= comment.content %></p>
+            <hr>
+            <span class="badge badge-primary badge-pill mr-2"><%= comment.id %> Likes </span>
+        <% if current_user.id == comment.user_id%>
+          <%= link_to "Editer", edit_gossip_comment_path(@current_gossip.id, comment.id), class:"btn btn-outline-info" %>
+          <%= link_to "Supprimer", gossip_comment_path(@current_gossip.id, comment.id), class:"btn btn-outline-danger", data:{confirm:"Etes vous sûr de vouloir supprimer ce potin ?", method:"DELETE"} %>
+        <% end %>
+          </div>
+        </div>
+      <% end %>

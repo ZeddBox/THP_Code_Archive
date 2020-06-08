@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="card my-3 text-center card-center">
+    <h2 class="action-banner card-header">Mon panier</h2>
+    
+      <% if @cart.items.length != 0 %>
+      <% end %>
+      <% @cart.items.each do |item| %>
+      <hr>
+        <div class="card-body" id=<%= JoinTableCartItem.find_by(cart_id: @cart.id, item_id: item.id).id %>>
+          <div class="float-left mr-5">
+            <span class="cart-image"><%= image_tag item.image_url, height: "200px;" %></span>
+          </div>
+          <div class="float-left mb-5 mr-5 text-left">
+            <h5 class="mb-4">Nom du Chat : <span class="card-text"><%= item.title %></span></h5>
+            <h5 class="mb-4">Prix de la Photo : <span class="card-text"><%= item.price %></span> €</h5>
+            <div class="cart-button float-left">
+              <%= link_to 'Supprimer du panier', cart_path(item.id), method: :delete, class: "btn btn-danger float-left" %> 
+            </div>
+              </div>
+
+              </div>
+            <% end %> 
+          </div>
+
+        <% if @cart.items.length != 0 %>
+          <div class="container mt-5">
+            <div class="card mt-2 mb-3 text-center card-center">
+              <h5 class="mb-4 action-banner" >Prix total : <%= @cart.total %> €</h5>
+              <p>Une fois le réglement effectué vous recevrez vos photos de chats directement sur votre email !</p>
+        <% else %>
+              <p> Votre panier est vide </p>
+        <% end %>
+            </div>
+          </div>
+          <div class="container mt-5 mb-3 text-center w-50 card-center">
+              <div id="stripe" class="mt-2">
+                <%= render 'stripe' %>
+              </div>
+  </div>    
+</div>

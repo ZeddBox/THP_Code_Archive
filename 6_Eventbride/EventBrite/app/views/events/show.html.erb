@@ -1,0 +1,37 @@
+
+<main class="container">
+
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-6">
+            <img src="<%= @event.picture %>" class="eventimage text-center" alt="...">
+          </div>
+          <div class="col-2">
+          </div>
+          <div class="col-4">
+            <h2><%= @event.title %></h2>
+            <p><%= @event.description %></p>
+            <p>Créé par <%= @event.admin.first_name %> <%= @event.admin.last_name %></p>
+            <p>Le <%= @event.start_date.strftime('%d-%m-%Y à %H:%M') %></p>
+            <p>Durée : <%= @event.duration %> min</p>
+            <p>Lieu : <%= @event.location %></p>
+            <p>Prix : <%= @event.price %> €</p>
+            <button class="btn btn-primary mt-auto">Rejoindre</button>
+            <div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <%= render 'join' %>
+
+<hr>
+
+  <%= render 'participants' %>
+
+<div class="d-flex justify-content-center">
+<%= link_to 'Retour Accueil', root_path, class:"btn btn-primary" %>
+</div>
+
+</main>

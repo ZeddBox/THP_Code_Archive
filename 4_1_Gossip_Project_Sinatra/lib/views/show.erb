@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Gossip #<%= params['id'].to_i + 1 %></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+            <li class="breadcrumb-item" aria-current="page"><a href="/">Accueil</a></li>
+            <li class="breadcrumb-item active"><a href="/gossips/new">Ajouter Gossip</a></li>
+        </ol>
+    </nav>
+     <div class="container-md">
+    <div class="card mt-2">
+      <h5 class="card-header">Gossip N° <%= params['id'].to_i + 1 %></h5>
+      <div class="card-body">
+        <h4 class="card-title"><%= gossip.author %> </h4>
+        <p><%= gossip.content %></p>
+        <a href="/gossips/<%=params['id']%>/edit" class="btnbtn-secondary">Modifier</a>
+      </div>
+    </div>
+    <div>
+  </body>
+</html>

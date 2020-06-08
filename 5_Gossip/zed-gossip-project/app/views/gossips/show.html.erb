@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Gossip Project</title>
+  </head>
+  <body>
+    <div class="container-md mt-5">
+      <div class="card mt-2">
+        <h5 class="card-header">Gossip N°<%=params[:id]%></h5>
+        <div class="card-body">
+          <h5> <span class="card-author">Auteur</span> : 
+          <%= link_to @current_gossip.user.first_name, user_path(@current_gossip.user.id) %>
+          </h5>
+          <p> <span class="card-author">De</span> :
+          <%= link_to @current_gossip.user.city.name, city_path(@current_gossip.user.city.id) %>
+          </p>
+
+          <hr>
+
+          <code>
+          <% @tags.each do |tag| %>
+          <%=tag%>
+          <% end %>
+          </code>
+
+          <hr>
+          
+          <h5><%= @current_gossip.title %></h5>
+          <p><%= @current_gossip.content %></p>
+          <p class="blockquote-footer"><%= @current_gossip.created_at.strftime("%a %d %m %Y à %H : %M") %></p>
+          <% if current_user.id == @current_gossip.user_id%>
+          <div class="modal-footer">
+            <%= link_to "Modifier", edit_gossip_path(@current_gossip.id), class:"btn btn-outline-info" %>
+            <%= link_to "Supprimer", gossip_path(@current_gossip.id), class:"btn btn-outline-danger", data:{confirm:"Etes vous sûr de vouloir   supprimer ce potin ?", method:"DELETE"} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <div>
+
+    <div class="container-sm mt-3">
+
+      <div>
+        <%= render 'comments/index'%>
+        <%= render 'comments/new'%>
+      </div>
+
+    </div>
+
+    <div class="container-md mt-3"></div>
+    <style>
+    .footer {
+    position: relative;
+    margin-top: 1rem;}
+    </style>
+  </body>
+</html>

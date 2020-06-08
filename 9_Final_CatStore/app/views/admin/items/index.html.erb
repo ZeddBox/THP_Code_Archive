@@ -1,0 +1,47 @@
+<%= render "layouts/banner"%>
+
+<main class="container">
+  <div class="row row-cols-4 row-cols-md-3 col-sm-12 p-md-0 m-md-0 d-flex justify-content-center">
+
+  <% @items.each do |item| %>
+    <div class="col-sm-12 col-12 col-md-4">
+      <a href="<%= admin_item_path(item.id) %>" class="card-clic">
+        <div class="card border-secondary mb-4 card-index">
+          <div class="card-header p-0">
+            <%= image_tag item.image_url,  :size => "400x500", :crop => :fill, class: "card-img-top" %>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><%= item.title %></h4>
+            <p class="card-text"><%= item.race %></p>
+            <p class="card-text"><%= item.price %> €</p>
+          </div>
+          <%# Le bouton see more, à voir si toujours utile ? (Mais quand on l'enlève ça bouge)  %>
+          <div class="card-footer">
+            <%= link_to "Voir plus", admin_item_path(item.id), class:"btn btn-outline-dark mx-1 my-1" %>
+              <%= link_to cart_path(item.id), class: "color_cart", method: "PUT" do %>
+                <i class="fas fa-shopping-cart fa-lg float-right mt-3 mr-2"></i>
+              <% end %>
+          </div>
+        </div>
+      </a>
+    </div>
+  <% end %>
+    <div class="col-sm-12 col-12 col-md-4">
+      <a href="<%= new_admin_item_path %>" class="card-clic">
+        <div class="card border-secondary mb-4 card-index">
+          <div class="card-body">
+            <i class="far fa-plus-square text-center mt-3 mr-2 card-img-top" style="font-size: 100px; color: black"></i>
+            <h4 class="card-title"> </h4>
+            <p class="card-text"> </p>
+            <p class="card-text"> </p>
+          </div>
+          <%# Le bouton see more, à voir si toujours utile ? (Mais quand on l'enlève ça bouge)  %>
+          <div class="card-footer text-center">
+            <%= link_to "Ajouter un chat", new_admin_item_path, class:"btn btn-success-dark mx-1 my-1" %>
+          </div>
+        </div>
+      </a>
+    </div>
+</main>
+
+

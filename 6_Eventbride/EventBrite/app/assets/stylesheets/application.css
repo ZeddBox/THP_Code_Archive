@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  background-color: #555;
+  color: #fff;
+}
+
+.row .alert {
+  width:50%;  
+  display:inline-block;
+  text-align: center;
+}
+
+.logo {
+  height: 45px;
+}
+
+.button_center {
+  width: 50%;
+  display:inline-block;
+  text-align: center;
+}
+
+/* PROFIL  */
+
+.text-white {
+  color: #fff !important;
+}
+.ui-bg-overlay-container, .ui-bg-video-container {
+  position: relative;
+}
+.ui-bg-cover {
+  background-color: transparent;
+  background-position: center center;
+  background-size: cover;
+}
+.ui-bg-overlay-container .ui-bg-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+}
+
+.bg-dark {
+  background-color: rgba(24,28,33,0.9) !important;
+}
+.opacity-50 {
+  opacity: .5 !important;
+}
+.bg-dark {
+  background-color: rgba(24,28,33,0.9) !important;
+}
+.ui-bg-overlay-container>*, .ui-bg-video-container>* {
+  position: relative;
+}
+@media (min-width: 992px){
+  .container, .container-fluid {
+      padding-right: 2rem;
+      padding-left: 2rem;
+  }
+}
+.media, .media>:not(.media-body), .jumbotron, .card {
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+.d-flex, .d-inline-flex, .media, .media>:not(.media-body), .jumbotron, .card {
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+.ui-w-100 {
+  width: 100px !important;
+  height: auto;
+}
+.font-weight-bold {
+  font-weight: 700 !important;
+}
+.opacity-75 {
+  opacity: .75 !important;
+}
+.tabs-alt.nav-tabs .nav-link.active, .tabs-alt.nav-tabs .nav-link.active:hover, .tabs-alt.nav-tabs .nav-link.active:focus, .tabs-alt>.nav-tabs .nav-link.active, .tabs-alt>.nav-tabs .nav-link.active:hover, .tabs-alt>.nav-tabs .nav-link.active:focus {
+  -webkit-box-shadow: 0 -2px 0 #26B4FF inset;
+  box-shadow: 0 -2px 0 #26B4FF inset;
+}
+
+.nav-tabs:not(.nav-fill):not(.nav-justified) .nav-link, .nav-pills:not(.nav-fill):not(.nav-justified) .nav-link {
+  margin-right: .125rem;
+}
+.nav-tabs.tabs-alt .nav-link, .tabs-alt>.nav-tabs .nav-link {
+  border-width: 0 !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+}
+.nav-tabs .nav-link.active {
+  border-bottom-color: #fff;
+}
+
+/* FIN PROFIL */
+
+.eventimage {
+  max-height: 400px;
+}
